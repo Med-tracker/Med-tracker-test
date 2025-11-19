@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Smartphone frame -->
+  <rect x="14" y="4" width="36" height="52" rx="6" fill="#0A2A4A"/>
+
+  <!-- Screen -->
+  <rect x="18" y="10" width="28" height="40" rx="4" fill="#DFF2FF"/>
+
+  <!-- Map lines -->
+  <path d="M19 20 L45 38" stroke="#74B8FF" stroke-width="3"/>
+  <path d="M22 37 L42 18" stroke="#74B8FF" stroke-width="3"/>
+
+  <!-- Location Pin -->
+  <path d="M32 20
+           C27 20 23 24 23 29
+           C23 37 32 44 32 44
+           C32 44 41 37 41 29
+           C41 24 37 20 32 20Z"
+        fill="#E53935" stroke="#0A2A4A" stroke-width="2"/>
+
+  <!-- White medical cross -->
+  <rect x="30" y="26" width="4" height="8" fill="white"/>
+  <rect x="28" y="28" width="8" height="4" fill="white"/>
+
+</svg>

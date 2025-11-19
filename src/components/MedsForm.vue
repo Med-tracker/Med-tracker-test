@@ -64,7 +64,6 @@
 
 <script setup>
 import { ref, watch } from "vue";
-import { Icon } from "@iconify/vue";
 
 const props = defineProps({
   modelValue: Object, // form data passed from parent

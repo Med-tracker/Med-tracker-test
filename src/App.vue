@@ -1,5 +1,6 @@
 <script setup>
-import MedsList from './components/MedsList.vue';
+import MedicationHome from './views/MedicationHome.vue';
+
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import MedsList from './components/MedsList.vue';
     <h3>Votre application de suivi des prises de médicaments</h3>
   </div>
 
-   <MedsList/>
+   <MedicationHome/>
 </template>
 
 <style scoped>

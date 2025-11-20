@@ -62,6 +62,7 @@
 </template>
 
 
+
 <script setup>
 import { ref, watch } from "vue";
 
@@ -73,6 +74,7 @@ const emit = defineEmits(["save", "close"]);
 
 const localForm = ref(JSON.parse(JSON.stringify(props.modelValue)));
 
+// Add hour entry
 function addHour() {
   const max = Number(localForm.value.frequency);
   if (localForm.value.hours.length < max) {
@@ -80,6 +82,7 @@ function addHour() {
   }
 }
 
+// Remove hour entry
 function removeHour(index) {
   if (localForm.value.hours.length > 1) {
     localForm.value.hours.splice(index, 1);
@@ -103,6 +106,7 @@ function submit() {
 </script>
 
 
+
 <style scoped>
 /* Modal */
 .modal-overlay {
@@ -120,7 +124,7 @@ function submit() {
 }
 
 .modal {
-  background: #fff;
+  background: var(--bg);
   padding: 20px;
   border-radius: 12px;
   width: 350px;
@@ -133,6 +137,8 @@ function submit() {
 
 .modal input,
 .modal select {
+  background: var(--bg);
+  color: var(--text);
   width: 100%;
   padding: 8px;
   margin-bottom: 12px;

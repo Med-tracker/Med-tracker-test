@@ -66,6 +66,8 @@
   </div>
 </template>
 
+
+
 <script setup>
 import { ref, computed } from "vue";
 import { useMedicationStore } from "../stores/medication.js";
@@ -93,6 +95,7 @@ function saveMedication(data) {
   closeModal();
 }
 
+/* Close modal and reset form */
 function closeModal() {
   showModal.value = false;
 
@@ -143,16 +146,16 @@ function isLate(item) {
   padding: 20px;
 }
 
-.title-button{
-    display: flex;
-    justify-content: space-between;
+.title-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
 
 .title {
   font-size: 20px;
   font-weight: 600;
-  color: #3a4a58;
+  color: var(--text);
   margin-bottom: 20px;
 }
 
@@ -166,16 +169,16 @@ function isLate(item) {
 
 /* Table style */
 .daily-table {
+  background-color: var(--bg);
   width: 100%;
   border-collapse: collapse;
-  background: #f9fcff;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .daily-table th {
-  background: #d8e8f5;
+  background-color: #d8e8f5;
   padding: 12px;
   text-align: left;
   color: #2a3b4c;
@@ -185,7 +188,6 @@ function isLate(item) {
 .daily-table td {
   padding: 10px 12px;
   border-bottom: 1px solid #e5eef5;
-  color: #345;
 }
 
 tr:last-child td {
@@ -194,6 +196,7 @@ tr:last-child td {
 
 tr.late {
   background: #fad8d8 !important;
+  color: var(--tr-late-dark);
 }
 
 .status {
@@ -228,27 +231,68 @@ tr.late {
   color: #1b5e20;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  .daily-table {
-    font-size: 14px;
-  }
-
-  .btn {
-    padding: 4px 8px;
-    font-size: 13px;
-  }
-}
-
 .add-btn {
   background: #4a90e2;
   color: white;
   border: none;
-  padding-inline: 8px;
+  padding: 8px 12px;
   border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 20px;
 }
+
+/* Responsive mobile */
+@media (max-width: 700px) {
+
+  .daily-container {
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .add-btn {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .daily-table {
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  .daily-table th {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .daily-table td {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+
+  .status {
+    padding: 3px 8px;
+    font-size: 12px;
+  }
+
+  .title-button {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .daily-table-wrapper {
+    overflow-x: auto;
+  }
+}
+
 </style>

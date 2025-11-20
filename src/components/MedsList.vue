@@ -86,6 +86,14 @@ const form = ref({
 
 /* Save medication */
 function saveMedication(data) {
+  const today = new Date().toLocaleDateString("fr-FR");
+
+  data.hours = data.hours.map(h => ({
+    ...h,
+    taken: false,
+    date: today
+  }));
+
   const med = {
     id: Date.now().toString(),
     ...data,
@@ -94,6 +102,7 @@ function saveMedication(data) {
   store.addMedication(med);
   closeModal();
 }
+
 
 /* Close modal and reset form */
 function closeModal() {
@@ -109,9 +118,18 @@ function closeModal() {
 
 /*** List ***/
 const list = computed(() => {
+  const today = new Date().toLocaleDateString("fr-FR");
   const items = [];
+
   store.medications.forEach(med => {
     med.hours.forEach((h, index) => {
+
+      // Reset taken status if date is different
+      if (h.date !== today) {
+        h.taken = false;
+        h.date = today;
+      }
+
       items.push({
         uid: med.id + "-" + index,
         medId: med.id,
@@ -122,8 +140,10 @@ const list = computed(() => {
       });
     });
   });
+
   return items;
 });
+
 
 function toggle(item) {
   const index = Number(item.uid.split("-")[1]);
